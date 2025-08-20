@@ -1,7 +1,6 @@
-# PROVIDER
 terraform {
 
-  required_version = "~> 1.12.2"
+  required_version = "~> 1.13.0"
 
   required_providers {
     aws = {
@@ -10,11 +9,11 @@ terraform {
     }
   }
 
-}
+  backend "s3" {
+    bucket       = "aws-s3-tfstate-dori"
+    key          = "tfstate"
+    region       = "us-east-1"
+    use_lockfile = true
+  }
 
-provider "aws" {
-  region                   = "us-east-1"
-  shared_config_files      = [".aws/config"]
-  shared_credentials_files = [".aws/credentials"]
-  profile                  = "iac"
 }
