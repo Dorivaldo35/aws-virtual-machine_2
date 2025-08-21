@@ -10,7 +10,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket       = "aws-s3-tfstate-dori"
+    bucket       = "dori"
     key          = "tfstate"
     region       = "us-east-1"
     use_lockfile = true
